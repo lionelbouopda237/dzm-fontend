@@ -32,7 +32,7 @@ export default function EmballagesPage() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h2 className="font-display text-2xl md:text-3xl">Gestion emballages vides</h2>
-            <p className="text-sm opacity-70 mt-2">Solde des emballages par structure. Reçus = factures • Renvoyés = saisie manuelle uniquement • Colis = total relevé dans les factures.</p>
+            <p className="text-sm opacity-70 mt-2">Solde des emballages par structure. Reçus = EMB Plein / casiers facturés • Renvoyés = EMB Vide des factures + saisies manuelles • Colis = somme des quantités de tous les produits de la facture.</p>
           </div>
           <div className="flex gap-3">
             <button className="dzm-btn-secondary flex items-center gap-2" onClick={load}><RefreshCcw size={16} /> Actualiser</button>

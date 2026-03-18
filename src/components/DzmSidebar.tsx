@@ -32,7 +32,7 @@ const DzmSidebar = ({ activeTab, onTabChange }: DzmSidebarProps) => {
 
       <div className={`p-6 ${collapsed ? 'px-3' : 'p-7'}`}>
         <div className="rounded-3xl overflow-hidden dzm-card p-4">
-          <img src={dzmLogo} alt="Logo ETS DZM" className={`${collapsed ? 'h-9 mx-auto' : 'h-24 mx-auto'} object-contain transition-all`} />
+          <img src={dzmLogo} alt="Logo ETS DZM" className={`${collapsed ? 'h-11 mx-auto' : 'h-32 mx-auto'} object-contain transition-all drop-shadow-[0_0_32px_rgba(70,164,255,0.18)]`} />
         </div>
         {!collapsed && (
           <>
