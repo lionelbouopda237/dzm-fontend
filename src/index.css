@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 50% 4%;
+    --foreground: 228 33% 95%;
+    --card: 222 30% 10%;
+    --card-foreground: 228 33% 95%;
+    --popover: 222 30% 10%;
+    --popover-foreground: 228 33% 95%;
+    --primary: 218 92% 60%;
+    --primary-foreground: 228 33% 95%;
+    --secondary: 28 100% 58%;
+    --secondary-foreground: 228 33% 95%;
+    --muted: 220 30% 12%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 228 76% 45%;
+    --accent-foreground: 228 33% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 218 92% 60%;
+    --radius: 1rem;
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --dzm-bg: #050814;
+    --dzm-sidebar: rgba(7,12,24,0.92);
+    --dzm-card: rgba(15,23,42,0.78);
+    --dzm-card-2: rgba(18, 28, 52, 0.78);
+    --dzm-blue: #46a4ff;
+    --dzm-orange: #ff9a3d;
+    --dzm-purple: #8572ff;
+    --dzm-text: #f7f9fc;
+    --dzm-border: rgba(255, 255, 255, 0.08);
+    --dzm-glow: rgba(70, 164, 255, 0.18);
+    --dzm-gradient: radial-gradient(circle at top left, rgba(70,164,255,0.18), transparent 30%), radial-gradient(circle at top right, rgba(255,154,61,0.16), transparent 28%), linear-gradient(180deg, #050814 0%, #07101f 55%, #04070f 100%);
+  }
+
+  body[data-theme='aube'] {
+    --dzm-bg: #08101c;
+    --dzm-blue: #67b3ff;
+    --dzm-orange: #ffae55;
+    --dzm-gradient: radial-gradient(circle at top left, rgba(103,179,255,0.22), transparent 30%), radial-gradient(circle at top right, rgba(255,174,85,0.18), transparent 25%), linear-gradient(180deg, #08101c 0%, #0d1831 55%, #07101e 100%);
+  }
+  body[data-theme='jour'] {
+    --dzm-bg: #07111d;
+    --dzm-blue: #46a4ff;
+    --dzm-orange: #ff9a3d;
+  }
+  body[data-theme='apresmidi'] {
+    --dzm-bg: #08101b;
+    --dzm-blue: #52a3ff;
+    --dzm-orange: #ffa95f;
+    --dzm-purple: #9383ff;
+  }
+  body[data-theme='soir'] {
+    --dzm-bg: #040812;
+    --dzm-blue: #5596ff;
+    --dzm-orange: #ff8b42;
+    --dzm-purple: #9f7bff;
+  }
+  body[data-theme='nuit'] {
+    --dzm-bg: #03060e;
+    --dzm-blue: #3d92ff;
+    --dzm-orange: #ff9e45;
+    --dzm-purple: #9c7dff;
+    --dzm-gradient: radial-gradient(circle at top left, rgba(61,146,255,0.16), transparent 24%), radial-gradient(circle at top right, rgba(156,125,255,0.12), transparent 18%), linear-gradient(180deg, #03060e 0%, #08111f 55%, #02050b 100%);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { min-height: 100%; }
+  body {
+    font-family: var(--font-body);
+    background: var(--dzm-gradient);
+    color: var(--dzm-text);
+    transition: background 500ms ease, color 250ms ease;
+  }
+  .font-display { font-family: var(--font-display); }
+}
+
+@layer components {
+  .dzm-card {
+    background: linear-gradient(180deg, rgba(18,28,52,0.78), rgba(10,16,30,0.9));
+    border: 1px solid var(--dzm-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+  .dzm-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 35%);
+    pointer-events: none;
+  }
+  .dzm-card-glow { box-shadow: 0 0 0 1px rgba(70,164,255,0.08), 0 22px 60px rgba(70,164,255,0.08); }
+  .dzm-glass {
+    background: rgba(10, 16, 30, 0.72);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--dzm-border);
+  }
+  .dzm-input {
+    @apply w-full rounded-xl p-3 outline-none transition-all;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--dzm-border);
+  }
+  .dzm-input:focus {
+    border-color: var(--dzm-blue);
+    box-shadow: 0 0 0 3px rgba(70, 164, 255, 0.15), 0 0 30px rgba(70, 164, 255, 0.08);
+  }
+  .dzm-btn-primary {
+    @apply px-4 py-2 rounded-xl font-medium transition-all;
+    background: linear-gradient(135deg, var(--dzm-blue), #2b6fe0);
+    color: white;
+    box-shadow: 0 10px 24px rgba(70, 164, 255, 0.24);
+  }
+  .dzm-btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  .dzm-btn-secondary {
+    @apply px-4 py-2 rounded-xl font-medium transition-all;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--dzm-border);
+  }
+  .dzm-kpi-value {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    line-height: 1;
+  }
+  .dzm-badge-blue, .dzm-badge-orange, .dzm-badge-success, .dzm-badge-warning, .dzm-badge-danger {
+    @apply px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border;
+  }
+  .dzm-badge-blue { background: rgba(70,164,255,0.12); color: var(--dzm-blue); border-color: rgba(70,164,255,0.16); }
+  .dzm-badge-orange { background: rgba(255,154,61,0.12); color: var(--dzm-orange); border-color: rgba(255,154,61,0.16); }
+  .dzm-badge-success { background: rgba(16, 185, 129, 0.1); color: #34d399; border-color: rgba(16, 185, 129, 0.2); }
+  .dzm-badge-warning { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border-color: rgba(245, 158, 11, 0.2); }
+  .dzm-badge-danger { background: rgba(239, 68, 68, 0.1); color: #fb7185; border-color: rgba(239, 68, 68, 0.2); }
+  .dzm-hero {
+    background: radial-gradient(circle at 0% 0%, rgba(70,164,255,0.18), transparent 38%), radial-gradient(circle at 100% 0%, rgba(255,154,61,0.16), transparent 32%), linear-gradient(180deg, rgba(18,28,52,0.94), rgba(8,12,20,0.94));
+  }
+}
+.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 999px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }

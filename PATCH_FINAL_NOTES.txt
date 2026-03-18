@@ -1,0 +1,11 @@
+Patch final complémentaire
+
+Inclus:
+- heure avec secondes
+- sidebar avec logo plus grand
+- intitulé Gestion emballages vides dans la navigation
+- page Produits reconstruite de façon plus analytique
+- donut dashboard amélioré (couleurs/gradients)
+- ajustements UX paiements
+- route racine backend plus claire
+- envoi email backend plus robuste (support SMTP_* ou Gmail, verify explicite)
